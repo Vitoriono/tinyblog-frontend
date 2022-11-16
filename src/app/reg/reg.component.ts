@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -14,7 +16,10 @@ export class RegComponent implements OnInit {
   email!: string;
   password!: string;
 
-  constructor() { }
+  constructor(
+    private authServise: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -27,14 +32,19 @@ export class RegComponent implements OnInit {
       password: this.password
     }
 
+
     if(!user.name ){
       alert('Enter your name');
       return false
+
     } else if (!user.login) {
       alert('Enter you login');
       return false
+
     } else if (!user.email) {
       alert('Enter your email')
+      return false;
+
     } else if (!user.password) {
       alert('Enter your password');
       return false
@@ -42,8 +52,18 @@ export class RegComponent implements OnInit {
 
 
 
-    console.log(user);
-    return false;
+
+    this.authServise.registerUser(user).subscribe(data => {
+      if(!data.success) {
+        alert(data.msg);
+        this.router.navigate(['/reg'])
+      } else {
+        alert(data.msg);
+        this.router.navigate(['/auth'])
+      }
+    })
+    return false
+
   }
 
 }
