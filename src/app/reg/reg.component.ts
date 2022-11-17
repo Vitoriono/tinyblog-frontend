@@ -16,6 +16,8 @@ export class RegComponent implements OnInit {
   email!: string;
   password!: string;
 
+
+
   constructor(
     private authServise: AuthService,
     private router: Router

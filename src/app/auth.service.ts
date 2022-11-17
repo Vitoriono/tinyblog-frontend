@@ -1,6 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
+// import { DbResponse } from './interfaces';
 
 
 @Injectable({
@@ -17,6 +19,6 @@ export class AuthService {
       const headers = new HttpHeaders()
       headers.append('Content-Type', 'application/json')
       return this.http.post('http://localhost:3000/account/reg', user,
-      {headers: headers}).pipe(map((res: any) => res.json()))
+      {headers: headers}).pipe(map((res: any)  => res) )
     }
 }
