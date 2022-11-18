@@ -52,9 +52,6 @@ export class RegComponent implements OnInit {
       return false
     }
 
-
-
-
     this.authServise.registerUser(user).subscribe(data => {
       if(!data.success) {
         alert(data.msg);
@@ -64,6 +61,7 @@ export class RegComponent implements OnInit {
         this.router.navigate(['/auth'])
       }
     })
+
     return false
 
   }
