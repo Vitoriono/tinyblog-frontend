@@ -4,19 +4,19 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
 
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <ul *ngIf="authServise.isAuthenticated()" class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
           <a class="nav-link active" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+          <a  class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
         </li>
       </ul>
 
       <form class="d-flex" role="search">
-        <a class="btn btn-outline-success" style="margin-right: 0.5rem ;" [routerLink]="['/auth']" >Sign in</a>
+        <a  class="btn btn-outline-success" style="margin-right: 0.5rem ;" [routerLink]="['/auth']" >Sign in</a>
         <a class="btn btn-outline-success" style="margin-right: 0.5rem ;" [routerLink]="['/reg']" >Sing up</a>
-        <a class="btn btn-outline-warning"  (click)="LogoutUser()" >Logout</a>
+        <a  class="btn btn-outline-warning"  (click)="LogoutUser()" >Logout</a>
       </form>
     </div>
   </div>

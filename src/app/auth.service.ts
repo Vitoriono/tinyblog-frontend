@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
-
+import  {Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-// import { DbResponse } from './interfaces';
+// import { JwtHelperService } from "@auth0/angular-jwt";
+
 
 
 @Injectable({
@@ -15,8 +16,9 @@ export class AuthService {
 
 
   constructor(
+    // private jwtHelper: JwtHelperService,
     private http: HttpClient,
-
+    private router: Router
     ) { }
 
     registerUser(user: any) {
@@ -45,6 +47,19 @@ export class AuthService {
       this.token = null;
       this.user = null
       localStorage.clear()
-
     }
+
+    // isAuthenticated(){
+    //   const token = localStorage.getItem("jwt");
+    //   if (token && !this.jwtHelper.isTokenExpired(token)) {
+    //     return true;
+    //   }
+    //   return false;
+
+    // }
+
+    isAuthenticated(){
+      return !!this.token;
+    }
+
 }

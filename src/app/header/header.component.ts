@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private authServise: AuthService,
+    public authServise: AuthService,
     private router: Router
   ) { }
 
@@ -23,4 +23,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/auth'])
   }
 
+  logout(event: Event){
+    event.preventDefault()
+    this.authServise.logout()
+    this.router.navigate(['auth'])
+  }
 }
