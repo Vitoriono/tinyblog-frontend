@@ -11,6 +11,8 @@ import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
+// import { AuthGuard } from './auth.guard';
+// import { RouterModule } from '@angular/router';
 
 
 
@@ -28,8 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
   ],
+
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
