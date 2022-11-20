@@ -11,8 +11,9 @@ import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
-// import { AuthGuard } from './auth.guard';
-// import { RouterModule } from '@angular/router';
+import { QuillModule } from 'ngx-quill';
+
+
 
 
 
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    QuillModule.forRoot()
   ],
 
   providers: [AuthService],
