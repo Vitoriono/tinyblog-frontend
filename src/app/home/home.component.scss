@@ -33,7 +33,21 @@ nav {
 }
 
 .col {
-  max-width: 220px;
+
+  display: inline-block;
+  max-width: 360px;
   height: 400px;
-  margin: 20px;
+  margin: 10px;
+  margin-bottom: 4.5rem;
+
 }
+
+.common {
+  display: block;
+  margin-top: 1rem;
+   margin-left: 0.4rem;
+
+  padding: 0px
+}
+
+
