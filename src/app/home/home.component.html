@@ -26,101 +26,23 @@
 
   <div class="common">
 
-  <div class="col ">
+  <div *ngFor="let post of posts" class="col ">
     <div class="card shadow-sm" >
-      <img class="card-img-top" src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="" >
+      <quill-view [content]="$any(post).photo"></quill-view>
       <div class="card-body mb-3 ">
         <div class="d-flex justify-content-between align-items-center">
-            <strong class="mb-2 text-primary" >World</strong>
-          <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9 минут</font></font></small>
+            <strong class="mb-2 text-primary" >{{$any(post).category}}</strong>
+          <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$any(post).date | date: "short" }}</font></font></small>
         </div>
         <h3>
-          <a class="text-dark" style="text-decoration: none" href="#">Title</a>s
+          <a class="text-dark" style="text-decoration: none" href="#">{{$any(post).title}}</a>
         </h3>
-        <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Это более широкая карточка со вспомогательным текстом ниже, как естественное введение в дополнительный контент. </font><font style="vertical-align: inherit;">Этот контент немного длиннее.</font></font></p>
+        <quill-view [content]="$any(post).text"></quill-view>
       </div>
     </div>
   </div>
 
-  <div class="col">
-    <div class="card shadow-sm" >
-      <img class="card-img-top" src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="" >
-      <div class="card-body mb-3 ">
-        <div class="d-flex justify-content-between align-items-center">
-            <strong class="mb-2 text-primary" >World</strong>
-          <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9 минут</font></font></small>
-        </div>
-        <h3>
-          <a class="text-dark" style="text-decoration: none" href="#">Title</a>s
-        </h3>
-        <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Это более широкая карточка со вспомогательным текстом ниже, как естественное введение в дополнительный контент. </font><font style="vertical-align: inherit;">Этот контент немного длиннее.</font></font></p>
-      </div>
-    </div>
-  </div>
 
-  <div class="col">
-    <div class="card shadow-sm" >
-      <img class="card-img-top" src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="" >
-      <div class="card-body mb-3 ">
-        <div class="d-flex justify-content-between align-items-center">
-            <strong class="mb-2 text-primary" >World</strong>
-          <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9 минут</font></font></small>
-        </div>
-        <h3>
-          <a class="text-dark" style="text-decoration: none" href="#">Title</a>s
-        </h3>
-        <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Это более широкая карточка со вспомогательным текстом ниже, как естественное введение в дополнительный контент. </font><font style="vertical-align: inherit;">Этот контент немного длиннее.</font></font></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card shadow-sm" >
-      <img class="card-img-top" src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="" >
-      <div class="card-body mb-3 ">
-        <div class="d-flex justify-content-between align-items-center">
-            <strong class="mb-2 text-primary" >World</strong>
-          <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9 минут</font></font></small>
-        </div>
-        <h3>
-          <a class="text-dark" style="text-decoration: none" href="#">Title</a>s
-        </h3>
-        <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Это более широкая карточка со вспомогательным текстом ниже, как естественное введение в дополнительный контент. </font><font style="vertical-align: inherit;">Этот контент немного длиннее.</font></font></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card shadow-sm" >
-      <img class="card-img-top" src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="" >
-      <div class="card-body mb-3 ">
-        <div class="d-flex justify-content-between align-items-center">
-            <strong class="mb-2 text-primary" >World</strong>
-          <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9 минут</font></font></small>
-        </div>
-        <h3>
-          <a class="text-dark" style="text-decoration: none" href="#">Title</a>s
-        </h3>
-        <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Это более широкая карточка со вспомогательным текстом ниже, как естественное введение в дополнительный контент. </font><font style="vertical-align: inherit;">Этот контент немного длиннее.</font></font></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card shadow-sm" >
-      <img class="card-img-top" src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="" >
-      <div class="card-body mb-3 ">
-        <div class="d-flex justify-content-between align-items-center">
-            <strong class="mb-2 text-primary" >World</strong>
-          <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9 минут</font></font></small>
-        </div>
-        <h3>
-          <a class="text-dark" style="text-decoration: none" href="#">Title</a>s
-        </h3>
-        <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Это более широкая карточка со вспомогательным текстом ниже, как естественное введение в дополнительный контент. </font><font style="vertical-align: inherit;">Этот контент немного длиннее.</font></font></p>
-      </div>
-    </div>
-  </div>
 
 </div>
 

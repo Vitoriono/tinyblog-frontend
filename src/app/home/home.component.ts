@@ -9,15 +9,24 @@ import { AuthService } from '../auth.service';
 export class HomeComponent implements OnInit {
   posts = []
 
+
   constructor(
     private authServise: AuthService
   ) { }
 
   ngOnInit(): void {
-    this.authServise.getAllPost().subscribe( (posts: any ) => {
-      this.posts = posts
-      console.log(posts);
-    })
+    this.authServise.getAllPost().subscribe( (posts: any ) =>
+      this.posts = posts,
+
+      (err: Error) => {},
+
+      () => {
+        for (let i = 0; i < this.posts.length; i++) {
+
+          this.posts[i].text  = this.posts[i].text.substring(0, 250)
+        }
+      }
+    )
   }
 
 }
