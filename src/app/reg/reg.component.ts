@@ -52,6 +52,8 @@ export class RegComponent implements OnInit {
       return false
     }
 
+    console.log(user);
+
     this.authServise.registerUser(user).subscribe(data => {
       if(!data.success) {
         alert(data.msg);
