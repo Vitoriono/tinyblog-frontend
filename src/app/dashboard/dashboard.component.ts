@@ -59,14 +59,14 @@ export class DashboardComponent implements OnInit {
       return false
     }
 
-     console.log(post);
+    //  console.log(post);
 
     this.authServise.registerPost(post).subscribe(data => {
       if(!data.success) {
         alert(data.msg);
       } else {
         alert(data.msg);
-        this.router.navigate(['/auth'])
+        this.router.navigate(['/'])
       }
     })
 

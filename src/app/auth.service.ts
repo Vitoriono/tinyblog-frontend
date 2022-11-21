@@ -59,4 +59,8 @@ export class AuthService {
       {headers: headers}).pipe(map((res: any)  => res) )
     }
 
+    getAllPost() {
+      return this.http.get('http://localhost:3000').pipe(map((res: any)  => res) )
+    }
+
 }
