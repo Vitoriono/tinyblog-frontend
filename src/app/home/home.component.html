@@ -29,16 +29,16 @@
 
   <div *ngFor="let post of posts" class="col ">
     <div class="card shadow-sm" >
-      <div  >
+
         <quill-view [content]="$any(post).photo" ></quill-view>
-      </div>
+
       <div class="card-body mb-3 ">
         <div class="ml-3 d-flex justify-content-between align-items-center">
             <strong class="mb-2 text-primary" >{{$any(post).category}}</strong>
           <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$any(post).date | date: "short" }}</font></font></small>
         </div>
         <h4 class="ml-3">
-          <a class="text-dark" style="text-decoration: none" href="#">{{$any(post).title}}</a>
+          <a class="text-dark" style="text-decoration: none" [routerLink]="['post', post._id]">{{$any(post).title}}</a>
         </h4>
         <quill-view [content]="$any(post).text" ></quill-view>
       </div>

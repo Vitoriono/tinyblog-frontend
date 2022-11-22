@@ -11,6 +11,7 @@ import { map } from 'rxjs';
 })
 export class AuthService {
 
+
   token: any;
   user: any;
 
@@ -61,6 +62,14 @@ export class AuthService {
 
     getAllPost() {
       return this.http.get('http://localhost:3000').pipe(map((res: any)  => res) )
+    }
+
+    getPostById(id: any) {
+      return this.http.get(`http://localhost:3000/post/${id}`).pipe(map((res: any)  => res) )
+    }
+
+    deletePost(id: any) {
+      return this.http.delete(`http://localhost:3000/post/${id}`).pipe(map((res: any)  => res) )
     }
 
 }
