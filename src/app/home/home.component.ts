@@ -1,21 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  posts = []
+
+
+  posts: any = [];
 
 
   constructor(
-    private authServise: AuthService
+    private authServise: AuthService,
+
   ) { }
 
+
+
   ngOnInit(): void {
-    this.authServise.getAllPost().subscribe( (posts: any ) =>
+
+
+
+    this.authServise.getAllPost().subscribe( (posts ) =>
       this.posts = posts,
 
       (err: Error) => {},
@@ -23,7 +32,8 @@ export class HomeComponent implements OnInit {
       () => {
         for (let i = 0; i < this.posts.length; i++) {
 
-          this.posts[i].text  = this.posts[i].text.substring(0, 250)
+          this.posts[i].text = this.posts[i].text.substring(0, 200)
+
         }
       }
     )
