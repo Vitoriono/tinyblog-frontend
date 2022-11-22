@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
 
   posts: any = [];
+  category: any
 
 
   constructor(
@@ -37,6 +38,11 @@ export class HomeComponent implements OnInit {
         }
       }
     )
+  }
+
+  setCategory(category: any) {
+    this.category = category
+
   }
 
 }
