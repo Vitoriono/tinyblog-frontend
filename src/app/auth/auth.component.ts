@@ -28,6 +28,7 @@ export class AuthComponent implements OnInit {
       login: this.login,
       password: this.password
     }
+
      if (!user.login) {
       alert('Enter you login');
       return false
@@ -47,7 +48,6 @@ export class AuthComponent implements OnInit {
       }
     })
     return false
-
   }
 
 }

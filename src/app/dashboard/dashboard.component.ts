@@ -16,8 +16,6 @@ export class DashboardComponent implements OnInit {
   author!: string;
   date!: string;
 
-
-
   constructor(
     private authServise: AuthService,
     private router: Router
@@ -26,10 +24,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-
   createPost() {
-
     const post = {
       category: this.category,
       title: this.title,
@@ -38,9 +33,6 @@ export class DashboardComponent implements OnInit {
       author: JSON.parse(localStorage.getItem('user') || '{}').login,
       date: new Date
     }
-
-
-
 
     if(!post.category ){
       alert('Select a category!');
@@ -59,8 +51,6 @@ export class DashboardComponent implements OnInit {
       return false
     }
 
-    //  console.log(post);
-
     this.authServise.registerPost(post).subscribe(data => {
       if(!data.success) {
         alert(data.msg);
@@ -73,7 +63,5 @@ export class DashboardComponent implements OnInit {
     return false;
 
   }
-
-
 
 }

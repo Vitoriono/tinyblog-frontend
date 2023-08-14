@@ -2,7 +2,6 @@
 
       <div class="container">
       <form (submit)="createPost()" >
-
         <h1 class="h3 mb-3 text-center fw-normal">Create post</h1>
           <label >Category, Title and Photo</label>
           <select [(ngModel)]="category" class="form-control mb-3" name="category" id="category" placeholder="World">
@@ -22,7 +21,6 @@
           <label class="mb-2" >Information:</label>
           <quill-editor [(ngModel)]="text" name="text" placeholder="Text" ></quill-editor>
         <button class="w-100 btn btn-primary mt-2" type="submit">Create</button>
-
       </form>
     </div>
 
