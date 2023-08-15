@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import  {Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
 
 
 
@@ -12,6 +12,7 @@ import { map, Observable } from 'rxjs';
 })
 export class AuthService {
 
+  errorMessage: String =  "";
 
   token: any;
   user: any;
@@ -26,7 +27,14 @@ export class AuthService {
       const headers = new HttpHeaders()
       headers.append('Content-Type', 'application/json')
       return this.http.post('http://localhost:3000/account/reg', user,
-      {headers: headers}).pipe(map((res: any)  => res) )
+      {headers: headers}).pipe(map((res: any)  => res),
+
+      catchError(err => {
+        console.log(err);
+        this.errorMessage = err.message;
+        return [];
+      })
+       )
     }
 
     authUser(user: any ) {

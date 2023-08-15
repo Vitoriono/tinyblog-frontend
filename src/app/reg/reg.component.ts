@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { IUser } from 'src/iinterfaces';
 
 
 @Component({
@@ -10,13 +11,10 @@ import { AuthService } from '../auth.service';
 })
 export class RegComponent implements OnInit {
 
-
   name!: string;
   login!: string;
   email!: string;
   password!: string;
-
-
 
   constructor(
     private authServise: AuthService,
@@ -27,6 +25,7 @@ export class RegComponent implements OnInit {
   }
 
   signUp() {
+    
     const user = {
       name: this.name,
       login: this.login,
@@ -63,6 +62,7 @@ export class RegComponent implements OnInit {
         this.router.navigate(['/auth'])
       }
     })
+   this.router.navigate(['/auth'])
 
     return false
 
