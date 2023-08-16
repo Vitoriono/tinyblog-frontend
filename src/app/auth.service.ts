@@ -30,18 +30,26 @@ export class AuthService {
       {headers: headers}).pipe(map((res: any)  => res),
 
       catchError(err => {
-        console.log(err);
+        alert(err.error.message);
         this.errorMessage = err.message;
         return [];
       })
        )
     }
 
+
     authUser(user: any ) {
       const headers = new HttpHeaders()
       headers.append('Content-Type', 'application/json')
-      return this.http.post('http://localhost:3000/account/auth', user,
-      {headers: headers}).pipe(map((res: any)  => res) )
+      return this.http.post('http://localhost:3000/account/login', user,
+      {headers: headers}).pipe(map((res: any)  => res),
+      
+      catchError(err => {
+        alert(err.error.message);
+        this.errorMessage = err.message;
+        return [];
+      })
+      )
     }
 
     storeUser(token: any, user: any){

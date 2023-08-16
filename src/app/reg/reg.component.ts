@@ -53,19 +53,17 @@ export class RegComponent implements OnInit {
 
     console.log(user);
 
+    
+
     this.authServise.registerUser(user).subscribe(data => {
-      if(!data.success) {
-        alert(data.msg);
+      if(!data) {
+        alert('This user already exists!');
         this.router.navigate(['/reg'])
       } else {
-        alert(data.msg);
         this.router.navigate(['/auth'])
       }
     })
-   this.router.navigate(['/auth'])
-
     return false
-
   }
 
 }

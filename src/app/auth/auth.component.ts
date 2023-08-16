@@ -13,8 +13,6 @@ export class AuthComponent implements OnInit {
   login!: string;
   password!: string;
 
-
-
   constructor(
     private authServise: AuthService,
     private router: Router
@@ -39,9 +37,10 @@ export class AuthComponent implements OnInit {
     }
 
     this.authServise.authUser(user).subscribe(data => {
-      if(!data.success) {
-        alert(data.msg);
+      if(!data) {
+        alert('Data not exist');
       } else {
+        console.log(data);
         alert('You have successfully logged in!');
         this.router.navigate(['/dashboard'])
         this.authServise.storeUser(data.token, data.user)
