@@ -4,9 +4,6 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -86,7 +83,7 @@ export class AuthService {
     }
 
     deletePost(id: any) {
-      return this.http.delete(`http://localhost:3000/post/${id}`).pipe(map((res: any)  => res) )
+      return this.http.delete(`http://localhost:3000/account/${id}`).pipe(map((res: any)  => res) )
     }
 
 }

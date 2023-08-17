@@ -32,9 +32,12 @@ export class PostComponent implements OnInit {
 
   deletePost(id: any) {
     this.authServise.deletePost(id).subscribe(data => {
+     
       if(!data.success) {
+        console.log('DATA from DELETE', data);
         alert("Post not deleted!");
        } else {
+        console.log('DATA from DELETE', data);
         alert("Post deleted!");
         this.rout.navigate(['/'])
       }
