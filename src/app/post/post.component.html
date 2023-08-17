@@ -3,11 +3,11 @@
     <h2>
       {{$any(post).title}}
     </h2>
-    <button *ngIf="login == $any(post).author" class="btn btn-sm btn-danger" (click)="deletePost($any(post)._id)">Delete</button>
+    <button *ngIf="login == $any(post).author" class="btn btn-sm btn-danger" (click)="deletePost($any(post).id)">Delete</button>
   </div>
   <div class="ml-3 d-flex justify-content-between align-items-center">
     <strong class="mb-2 text-primary" >{{$any(post).category}}</strong>
-    <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Author: @{{$any(post).author}}, Date: {{$any(post).date | date: "short" }}</font></font></small>
+    <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Author: @{{$any(post).author}}, Date: {{$any(post).createdAt | date: "short" }}</font></font></small>
   </div>
   <quill-view  [content]="$any(post).photo" ></quill-view>
   <div class="mt-2 mb-3">

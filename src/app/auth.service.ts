@@ -82,7 +82,7 @@ export class AuthService {
     }
 
     getPostById(id: any) {
-      return this.http.get(`http://localhost:3000/post/${id}`).pipe(map((res: any)  => res) )
+      return this.http.get(`http://localhost:3000/account/${id}`).pipe(map((res: any)  => res) )
     }
 
     deletePost(id: any) {

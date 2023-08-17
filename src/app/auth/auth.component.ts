@@ -48,5 +48,4 @@ export class AuthComponent implements OnInit {
     })
     return false
   }
-
 }

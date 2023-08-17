@@ -14,9 +14,7 @@ export class DashboardComponent implements OnInit {
   photo!: string;
   text!: string;
   author!: string;
-  date!: string;
-  userId!: number;
-
+  
   constructor(
     private authServise: AuthService,
     private router: Router
@@ -31,9 +29,7 @@ export class DashboardComponent implements OnInit {
       title: this.title,
       photo: this.photo,
       text: this.text,
-      userId: JSON.parse(localStorage.getItem('user') || '{}').id
-      // author: JSON.parse(localStorage.getItem('user') || '{}').login,
-      // date: new Date
+      author: JSON.parse(localStorage.getItem('user') || '{}').login,
     }
     console.log(post);
 
