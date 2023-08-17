@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   text!: string;
   author!: string;
   date!: string;
+  userId!: number;
 
   constructor(
     private authServise: AuthService,
@@ -30,9 +31,11 @@ export class DashboardComponent implements OnInit {
       title: this.title,
       photo: this.photo,
       text: this.text,
-      author: JSON.parse(localStorage.getItem('user') || '{}').login,
-      date: new Date
+      userId: JSON.parse(localStorage.getItem('user') || '{}').id
+      // author: JSON.parse(localStorage.getItem('user') || '{}').login,
+      // date: new Date
     }
+    console.log(post);
 
     if(!post.category ){
       alert('Select a category!');

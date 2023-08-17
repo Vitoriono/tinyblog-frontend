@@ -43,7 +43,7 @@ export class AuthComponent implements OnInit {
         console.log(data);
         alert('You have successfully logged in!');
         this.router.navigate(['/dashboard'])
-        this.authServise.storeUser(data.token, data.user)
+        this.authServise.storeUser(data.token, data.payload)
       }
     })
     return false
