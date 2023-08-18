@@ -1,18 +1,16 @@
 
-  <body class="text-center container">
-    <main >
-      <form #myForm="ngForm" (submit)="signUp(); myForm.resetForm()">
+  <div class="text-center container">
+     <form #myForm="ngForm" (submit)="signUp(); myForm.resetForm()">
         <img class="logo mb-4" src="https://papik.pro/uploads/posts/2022-01/thumbs/1643606419_4-papik-pro-p-logotip-wwf-4.jpg" alt="" width="110" height="90">
         <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-          <input [(ngModel)]="name" type="name" name="name" class="form-control" id="inputName" placeholder="Name">
-          <input [(ngModel)]="login"  type="login" name="login" class="form-control" id="inputLogin" placeholder="Login">
-          <input [(ngModel)]="email"  type="email" name="email" class="form-control" id="inputEmail" placeholder="Email adress">
+          <input [(ngModel)]="name" type="name" name="name" class="form-control form-gap" id="inputName" placeholder="Name">
+          <input [(ngModel)]="login"  type="login" name="login" class="form-control form-gap" id="inputLogin" placeholder="Login">
+          <input [(ngModel)]="email"  type="email" name="email" class="form-control form-gap" id="inputEmail" placeholder="Email adress">
           <input [(ngModel)]="password"  type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
         <button class="w-100 btn btn-lg" type="submit">Sign up</button>
-        <p class="mt-5 mb-3 text-muted">© 2022–2027</p>
+        <p class="mt-4 mb-3 text-muted">© 2022–2027</p>
       </form>
-    </main>
-  </body>
+    </div>
 
   
 

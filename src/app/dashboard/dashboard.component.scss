@@ -1,9 +1,22 @@
-
 .container {
-  margin-top: 75px;
   max-width: 900px;
+  margin-top: 8rem;
+  background-color: rgb(228, 216, 216);
+  opacity: 0.85;
+  padding: 30px 30px 30px 30px;
+  border-radius: 5%;
+  margin-bottom: 40px;
+  box-shadow: 10px 7px 7px 0px rgba(0, 0, 0, 0.4);
 }
 
+.category {
+  height: 32px;
+}
 
+input {
+  height: 45px;
+}
 
-
+.btn {
+  height: 45px;
+}

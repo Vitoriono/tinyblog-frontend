@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'reg' , component: RegComponent},
   {path:'auth' , component: AuthComponent},
   {path:'post/:id' , component: PostComponent },
-  {path:'dashboard' , component: DashboardComponent, canActivate: [AuthGuard]},
+  {path:'dashboard' , component: DashboardComponent},
 ];
 
 @NgModule({

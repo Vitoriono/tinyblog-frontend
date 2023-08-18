@@ -10,11 +10,21 @@ nav {
   display: inline-block;
 }
 
+.category {
+  margin-top: 5px;
+  color: rgb(239, 229, 229);
+  cursor: pointer;
+}
+
+.category:hover {
+  color: rgb(215, 209, 209);
+}
+
 .figure {
   position: relative;
   height: 400px;
   overflow: hidden;
-
+  box-shadow: 10px 7px 7px 0px rgba(0, 0, 0, 0.4);
 }
 
 .text {
@@ -25,29 +35,27 @@ nav {
   max-width: 500px;
 }
 
-
 .photo {
   position: absolute;
   width: 120%;
-  margin: -30% 0 0 0  ;
+  margin: -30% 0 0 0;
 }
 
 .col {
-
   display: inline-block;
   max-width: 360px;
   height: 400px;
   margin: 10px;
   margin-bottom: 5.3rem;
-
+  opacity: 0.8;
 }
 
 .common {
   display: block;
   margin-top: 1rem;
-   margin-left: 0.4rem;
+  margin-left: 0.4rem;
 
-  padding: 0px
+  padding: 0px;
 }
 
 .imgs {
@@ -57,7 +65,3 @@ nav {
 .footer {
   margin-top: 50px;
 }
-
-
-
-
