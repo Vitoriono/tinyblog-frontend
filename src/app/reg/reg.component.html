@@ -1,19 +1,159 @@
+<!-- <div class="text-center container">
+  <form #myForm="ngForm" (submit)="signUp(); myForm.resetForm()">
+    <img
+      class="logo mb-4"
+      src="https://papik.pro/uploads/posts/2022-01/thumbs/1643606419_4-papik-pro-p-logotip-wwf-4.jpg"
+      alt=""
+      width="110"
+      height="90"
+    />
+    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+    <input
+      [(ngModel)]="name"
+      type="name"
+      name="name"
+      class="form-control form-gap"
+      id="inputName"
+      placeholder="Name"
+    />
+    <input
+      [(ngModel)]="login"
+      type="login"
+      name="login"
+      class="form-control form-gap"
+      id="inputLogin"
+      placeholder="Login"
+    />
+    <input
+      [(ngModel)]="email"
+      type="email"
+      name="email"
+      class="form-control form-gap"
+      id="inputEmail"
+      placeholder="Email adress"
+    />
+    <input
+      [(ngModel)]="password"
+      type="password"
+      name="password"
+      class="form-control"
+      id="inputPassword"
+      placeholder="Password"
+    />
+    <button class="w-100 btn btn-lg" type="submit">Sign up</button>
+    <p class="mt-4 mb-3 text-muted">© 2022–2027</p>
+  </form>
+</div> -->
 
-  <div class="text-center container">
-     <form #myForm="ngForm" (submit)="signUp(); myForm.resetForm()">
-        <img class="logo mb-4" src="https://papik.pro/uploads/posts/2022-01/thumbs/1643606419_4-papik-pro-p-logotip-wwf-4.jpg" alt="" width="110" height="90">
-        <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-          <input [(ngModel)]="name" type="name" name="name" class="form-control form-gap" id="inputName" placeholder="Name">
-          <input [(ngModel)]="login"  type="login" name="login" class="form-control form-gap" id="inputLogin" placeholder="Login">
-          <input [(ngModel)]="email"  type="email" name="email" class="form-control form-gap" id="inputEmail" placeholder="Email adress">
-          <input [(ngModel)]="password"  type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
-        <button class="w-100 btn btn-lg" type="submit">Sign up</button>
-        <p class="mt-4 mb-3 text-muted">© 2022–2027</p>
-      </form>
+<div class="text-center container">
+  <form novalidate [formGroup]="registForm" (ngSubmit)="signUp(registForm)">
+    <img
+      class="logo mb-4"
+      src="https://papik.pro/uploads/posts/2022-01/thumbs/1643606419_4-papik-pro-p-logotip-wwf-4.jpg"
+      alt=""
+      width="110"
+      height="90"
+    />
+    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+
+    <input
+      formControlName="name"
+      type="name"
+      class="form-control form-gap"
+      id="inputName"
+      placeholder="Name"
+    />
+
+    <div
+      *ngIf="
+        registForm.controls.name.invalid && registForm.controls.name.touched
+      "
+    >
+      <p class="alert" *ngIf="registForm.controls.name.errors?.required">
+        Required field!
+      </p>
+      <p class="alert" *ngIf="registForm.controls.name.errors?.minlength">
+        Length at least
+        {{ registForm.controls.name.errors?.minlength.requiredLength }}
+        characters.
+      </p>
     </div>
 
-  
+    <input
+      formControlName="login"
+      type="login"
+      name="login"
+      class="form-control form-gap"
+      id="inputLogin"
+      placeholder="Login"
+    />
+    <div
+      *ngIf="
+        registForm.controls.login.invalid && registForm.controls.login.touched
+      "
+    >
+      <p class="alert" *ngIf="registForm.controls.login.errors?.required">
+        Required field!
+      </p>
+      <p class="alert" *ngIf="registForm.controls.login.errors?.minlength">
+        Length at least
+        {{ registForm.controls.login.errors?.minlength.requiredLength }}
+        characters.
+      </p>
+    </div>
 
+    <input
+      formControlName="email"
+      type="email"
+      name="email"
+      class="form-control form-gap"
+      id="inputEmail"
+      placeholder="Email adress"
+    />
+    <div
+      *ngIf="
+        registForm.controls.email.invalid && registForm.controls.email.touched
+      "
+    >
+      <p class="alert" *ngIf="registForm.controls.email.errors?.required">
+        Required field!
+      </p>
+      <p class="alert" *ngIf="registForm.controls.email.errors?.pattern">
+        Incorrect signature of email.
+      </p>
+    </div>
 
+    <input
+      formControlName="password"
+      type="password"
+      name="password"
+      class="form-control"
+      id="inputPassword"
+      placeholder="Password"
+    />
+    <div
+      *ngIf="
+        registForm.controls.password.invalid &&
+        registForm.controls.password.touched
+      "
+    >
+      <p class="alert" *ngIf="registForm.controls.password.errors?.required">
+        Required field!
+      </p>
+      <p class="alert" *ngIf="registForm.controls.password.errors?.minlength">
+        Length at least
+        {{ registForm.controls.login.errors?.minlength.requiredLength }}
+        characters.
+      </p>
+    </div>
 
-
+    <button
+      class="w-100 btn btn-lg"
+      type="submit"
+      [disabled]="registForm.invalid"
+    >
+      Sign up
+    </button>
+    <p class="mt-4 mb-3 text-muted">© 2022–2027</p>
+  </form>
+</div>

@@ -21,11 +21,9 @@ export class AuthComponent implements OnInit {
 
   signIn(form: FormGroup) {
     this.authServise.authUser(form.value).subscribe((data) => {
-      console.log(form.value);
       if (!data) {
         alert('Data not exist');
       } else {
-        console.log(data);
         alert('You have successfully logged in!');
         this.router.navigate(['/dashboard']);
         this.authServise.storeUser(data.token, data.payload);
