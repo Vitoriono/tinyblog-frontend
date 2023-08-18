@@ -1,20 +1,29 @@
 <div *ngIf="post$ | async as post" class="container">
   <div class="ml-3 d-flex justify-content-between align-items-center">
     <h2>
-      {{$any(post).title}}
+      {{ $any(post).title }}
     </h2>
-    <button *ngIf="login == $any(post).author" class="btn btn-sm btn-danger" (click)="deletePost($any(post).id)">Delete</button>
+    <button
+      *ngIf="login == $any(post).author"
+      class="btn btn-sm btn-danger"
+      (click)="deletePost($any(post).id)"
+    >
+      Delete
+    </button>
   </div>
   <div class="ml-3 d-flex justify-content-between align-items-center">
-    <strong class="mb-2 text-primary" >{{$any(post).category}}</strong>
-    <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Author: @{{$any(post).author}}, Date: {{$any(post).createdAt | date: "short" }}</font></font></small>
+    <strong class="mb-2 category">{{ $any(post).category }}</strong>
+    <small class="text-muted"
+      ><font style="vertical-align: inherit"
+        ><font style="vertical-align: inherit; color: white; font-size: 16px"
+          >Author: @{{ $any(post).author }}, &nbsp;&nbsp;&nbsp; Date:
+          {{ $any(post).createdAt | date : "dd.MM.yyyy" }}</font
+        ></font
+      ></small
+    >
   </div>
-  <quill-view  [content]="$any(post).photo" ></quill-view>
+  <quill-view [content]="$any(post).photo"></quill-view>
   <div class="mt-2 mb-3">
-    <quill-view [content]="$any(post).text" ></quill-view>
+    <quill-view class="text" [content]="$any(post).text"></quill-view>
   </div>
-
-
 </div>
-
-

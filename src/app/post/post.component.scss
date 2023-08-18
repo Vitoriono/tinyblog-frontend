@@ -1,8 +1,19 @@
-
 .container {
   margin-top: 80px;
   max-width: 900px;
-  border-radius: 2%;
+  padding: 20px 15px 20px 25px;
+  background-color: rgb(5, 120, 82);
+  opacity: 0.8;
+  margin-bottom: 40px;
 }
 
+.text {
+  color: white;
+  font-size: large;
+  font-style: italic;
+}
 
+.category {
+  font-size: 20px;
+  color: rgb(30, 48, 140);
+}
