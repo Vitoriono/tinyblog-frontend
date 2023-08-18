@@ -8,15 +8,19 @@ import { AuthGuard } from './auth.guard';
 import { PostComponent } from './post/post.component';
 
 const routes: Routes = [
-  {path:'' , component: HomeComponent},
-  {path:'reg' , component: RegComponent},
-  {path:'auth' , component: AuthComponent},
-  {path:'post/:id' , component: PostComponent },
-  {path:'dashboard' , component: DashboardComponent},
+  { path: '', component: HomeComponent },
+  { path: 'reg', component: RegComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: 'post/:id', component: PostComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

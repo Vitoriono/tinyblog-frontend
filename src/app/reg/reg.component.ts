@@ -3,67 +3,53 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { IUser } from 'src/iinterfaces';
 
-
 @Component({
   selector: 'app-reg',
   templateUrl: './reg.component.html',
-  styleUrls: ['./reg.component.scss']
+  styleUrls: ['./reg.component.scss'],
 })
 export class RegComponent implements OnInit {
-
   name!: string;
   login!: string;
   email!: string;
   password!: string;
 
-  constructor(
-    private authServise: AuthService,
-    private router: Router
-  ) { }
+  constructor(private authServise: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   signUp() {
-    
     const user = {
       name: this.name,
       login: this.login,
       email: this.email,
-      password: this.password
-    }
+      password: this.password,
+    };
 
-
-    if(!user.name ){
+    if (!user.name) {
       alert('Enter your name');
-      return false
-
+      return false;
     } else if (!user.login) {
       alert('Enter you login');
-      return false
-
-    } else if (!user.email) {
-      alert('Enter your email')
       return false;
-
+    } else if (!user.email) {
+      alert('Enter your email');
+      return false;
     } else if (!user.password) {
       alert('Enter your password');
-      return false
+      return false;
     }
 
     console.log(user);
 
-    
-
-    this.authServise.registerUser(user).subscribe(data => {
-      if(!data) {
+    this.authServise.registerUser(user).subscribe((data) => {
+      if (!data) {
         alert('This user already exists!');
-        this.router.navigate(['/reg'])
+        this.router.navigate(['/reg']);
       } else {
-        this.router.navigate(['/auth'])
+        this.router.navigate(['/auth']);
       }
-    })
-    return false
+    });
+    return false;
   }
-
 }

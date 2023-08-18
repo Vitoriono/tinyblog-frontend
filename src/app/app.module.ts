@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,10 +15,6 @@ import { QuillModule } from 'ngx-quill';
 import { PostComponent } from './post/post.component';
 import { SortingPipe } from './sorting.pipe';
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,17 +24,18 @@ import { SortingPipe } from './sorting.pipe';
     AuthComponent,
     DashboardComponent,
     PostComponent,
-    SortingPipe
+    SortingPipe,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
   ],
 
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
