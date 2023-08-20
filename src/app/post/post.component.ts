@@ -32,7 +32,7 @@ export class PostComponent implements OnInit {
 
   deletePost(id: number) {
     this.apiServise.deletePost(id).subscribe((data) => {
-      if (!data) {
+      if (!data && data === false) {
         alert('Post not deleted!');
       } else {
         alert('Post deleted!');

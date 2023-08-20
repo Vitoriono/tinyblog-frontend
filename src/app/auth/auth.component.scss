@@ -13,7 +13,27 @@
 }
 
 input {
+  margin: 0;
   height: 50px;
+}
+
+.alert {
+  margin-top: 15px;
+  background: rgb(150, 51, 67);
+  height: 45px;
+  padding: 9px;
+  // opacity: 0.7;
+  color: white;
+  font-weight: 500;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.alert:hover {
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-delay: 0.2s;
 }
 
 button {
@@ -27,6 +47,19 @@ button:hover {
   background-color: rgb(59, 5, 51);
 }
 
+button:disabled {
+  background-color: rgb(92, 22, 82);
+  color: rgb(230, 204, 226);
+}
+
 .logo {
   border-radius: 15px;
+}
+
+#placeholder {
+  color: rgb(211, 15, 15);
+  margin: -2em 0 0 20em;
+  position: absolute;
+  font-style: italic;
+  font-size: 16px;
 }

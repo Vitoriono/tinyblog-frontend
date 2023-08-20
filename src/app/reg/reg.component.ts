@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+document.getElementById;
+
 @Component({
   selector: 'app-reg',
   templateUrl: './reg.component.html',

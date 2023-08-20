@@ -14,14 +14,19 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      login: new FormControl('', Validators.required),
-      password: new FormControl(null, [Validators.required]),
+      login: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
     });
   }
 
   signIn(form: FormGroup) {
     this.apiServise.authUser(form.value).subscribe((data) => {
-      console.log('I am here', data);
       if (!data) {
         alert('Data not exist');
       } else {
