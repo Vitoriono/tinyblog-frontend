@@ -1,27 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
   category!: string;
   title!: string;
   photo!: string;
   text!: string;
   author!: string;
-  
-  constructor(
-    private authServise: AuthService,
-    private router: Router
-  ) { }
 
-  ngOnInit(): void {
-  }
+  constructor(private apiServise: ApiService, private router: Router) {}
+
+  ngOnInit(): void {}
 
   createPost() {
     const post = {
@@ -30,37 +25,32 @@ export class DashboardComponent implements OnInit {
       photo: this.photo,
       text: this.text,
       author: JSON.parse(localStorage.getItem('user') || '{}').login,
-    }
+    };
     console.log(post);
 
-    if(!post.category ){
+    if (!post.category) {
       alert('Select a category!');
-      return false
-
+      return false;
     } else if (!post.title) {
       alert('Enter  title!');
-      return false
-
-    } else if (!post.photo) {
-      alert('Add your photo!')
       return false;
-
+    } else if (!post.photo) {
+      alert('Add your photo!');
+      return false;
     } else if (!post.text) {
       alert('Enter your text!');
-      return false
+      return false;
     }
 
-    this.authServise.registerPost(post).subscribe(data => {
-      if(!data.success) {
-        alert(data.msg);
+    this.apiServise.registerPost(post).subscribe((data) => {
+      if (!data) {
+        alert(data);
       } else {
-        alert(data.msg);
-        this.router.navigate(['/'])
+        alert(data);
+        this.router.navigate(['/']);
       }
-    })
+    });
 
     return false;
-
   }
-
 }

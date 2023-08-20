@@ -39,17 +39,15 @@
     <div class="common">
       <div *ngFor="let post of posts | sorting : category" class="col">
         <div class="card shadow-sm">
-          <quill-view [content]="$any(post).photo"></quill-view>
+          <quill-view [content]="post.photo"></quill-view>
 
           <div class="card-body mb-3">
             <div class="ml-3 d-flex justify-content-between align-items-center">
-              <strong class="mb-2 text-primary">{{
-                $any(post).category
-              }}</strong>
+              <strong class="mb-2 text-primary">{{ post.category }}</strong>
               <small class="text-muted"
                 ><font style="vertical-align: inherit"
                   ><font style="vertical-align: inherit">{{
-                    $any(post).date | date : "short"
+                    post.createdAt | date : "short"
                   }}</font></font
                 ></small
               >
@@ -59,10 +57,10 @@
                 class="text-dark"
                 style="text-decoration: none"
                 [routerLink]="['post', post.id]"
-                >{{ $any(post).title }}</a
+                >{{ post.title }}</a
               >
             </h4>
-            <quill-view [content]="$any(post).text"></quill-view>
+            <quill-view [content]="post.text"></quill-view>
           </div>
         </div>
       </div>

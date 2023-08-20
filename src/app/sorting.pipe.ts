@@ -1,17 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { IPost } from './interfaces';
 
 @Pipe({
-  name: 'sorting'
+  name: 'sorting',
 })
 export class SortingPipe implements PipeTransform {
-
-  transform(posts: any, category = ''): any {
+  transform(posts: Array<IPost>, category = ''): Array<IPost> {
     if (!category) {
-      return posts
+      return posts;
     }
-    return posts.filter( (posts: any) => {
-      return posts.category.toLowerCase() == category.toLowerCase()
-    })
+    return posts.filter((post: IPost) => {
+      return post.category.toLowerCase() == category.toLowerCase();
+    });
   }
-
 }

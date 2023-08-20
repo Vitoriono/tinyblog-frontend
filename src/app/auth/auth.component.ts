@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { ApiService } from '../api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
-  constructor(private authServise: AuthService, private router: Router) {}
+  constructor(private apiServise: ApiService, private router: Router) {}
   declare loginForm: FormGroup;
 
   ngOnInit(): void {
@@ -20,13 +20,14 @@ export class AuthComponent implements OnInit {
   }
 
   signIn(form: FormGroup) {
-    this.authServise.authUser(form.value).subscribe((data) => {
+    this.apiServise.authUser(form.value).subscribe((data) => {
+      console.log('I am here', data);
       if (!data) {
         alert('Data not exist');
       } else {
         alert('You have successfully logged in!');
         this.router.navigate(['/dashboard']);
-        this.authServise.storeUser(data.token, data.payload);
+        this.apiServise.storeUser(data.token, data.payload);
       }
     });
     return false;

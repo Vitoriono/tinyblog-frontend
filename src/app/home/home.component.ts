@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { ApiService } from '../api.service';
+import { IPost } from '../interfaces';
 
 @Component({
   selector: 'app-home',
@@ -7,27 +8,24 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  posts: any = [];
-  category: any;
+  declare posts: Array<IPost>;
+  declare category: string;
 
-  constructor(private authServise: AuthService) {}
+  constructor(private apiServise: ApiService) {}
 
   ngOnInit(): void {
-    this.authServise.getAllPost().subscribe(
-      (posts) => (this.posts = posts),
-
+    this.apiServise.getAllPost().subscribe(
+      (posts) => ((this.posts = posts), console.log(posts)),
       (err: Error) => {},
-
       () => {
         for (let i = 0; i < this.posts.length; i++) {
           this.posts[i].text = this.posts[i].text.substring(0, 200);
-          console.log(this.posts[i]);
         }
       }
     );
   }
 
-  setCategory(category: any) {
+  setCategory(category: string) {
     this.category = category;
   }
 }

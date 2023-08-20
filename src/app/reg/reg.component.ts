@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { ApiService } from '../api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -9,12 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./reg.component.scss'],
 })
 export class RegComponent implements OnInit {
-  // name!: string;
-  // login!: string;
-  // email!: string;
-  // password!: string;
-
-  constructor(private authServise: AuthService, private router: Router) {}
+  constructor(private apiServise: ApiService, private router: Router) {}
 
   declare registForm: FormGroup;
 
@@ -39,39 +34,15 @@ export class RegComponent implements OnInit {
   }
 
   signUp(form: FormGroup) {
-    // const user = {
-    //   name: this.name,
-    //   login: this.login,
-    //   email: this.email,
-    //   password: this.password,
-    // };
-
-    // if (!user.name) {
-    //   alert('Enter your name');
-    //   return false;
-    // } else if (!user.login) {
-    //   alert('Enter you login');
-    //   return false;
-    // } else if (!user.email) {
-    //   alert('Enter your email');
-    //   return false;
-    // } else if (!user.password) {
-    //   alert('Enter your password');
-    //   return false;
-    // }
-
-    // console.log(user);
-
-    console.log(form.value);
-
-    //   this.authServise.registerUser(user).subscribe((data) => {
-    //     if (!data) {
-    //       alert('This user already exists!');
-    //       this.router.navigate(['/reg']);
-    //     } else {
-    //       this.router.navigate(['/auth']);
-    //     }
-    //   });
-    //   return false;
+    this.apiServise.registerUser(form.value).subscribe((data) => {
+      console.log(form);
+      if (!data) {
+        alert('This user already exists!');
+        this.router.navigate(['/reg']);
+      } else {
+        this.router.navigate(['/auth']);
+      }
+    });
+    return false;
   }
 }
