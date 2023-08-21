@@ -1,12 +1,12 @@
 <div class="container">
-  <form (submit)="createPost()">
+  <form novalidate [formGroup]="postForm" (submit)="createPost(postForm)">
     <h1 class="h3 mb-3 text-center fw-normal">Create post</h1>
     <label>Category, Title and Photo</label>
     <select
-      [(ngModel)]="category"
+      formControlName="category"
       class="form-control mb-3 category"
+      type="category"
       name="category"
-      id="category"
       placeholder="World"
     >
       <option value="World">World</option>
@@ -20,26 +20,63 @@
       <option value="Style">Style</option>
       <option value="Travel">Travel</option>
     </select>
+    <div id="category" *ngIf="postForm.controls.category.invalid && postForm.controls.category.touched">
+      <p *ngIf="postForm.controls.category.errors?.required">
+        *Required field!
+      </p>
+      <p *ngIf="postForm.controls.category.errors?.minlength">
+        *Length at least
+        {{ postForm.controls.category.errors?.minlength.requiredLength }}
+        characters.
+      </p>
+    </div>
     <input
-      [(ngModel)]="title"
-      type="title"
+      formControlName="title"
+      class="form-control mb-3"
       name="title"
-      class="form-control mb-3 inputs"
-      id="inputTitle"
+      type="title"
       placeholder="Title"
     />
+    <div id="title" *ngIf="postForm.controls.title.invalid && postForm.controls.title.touched">
+      <p *ngIf="postForm.controls.title.errors?.required">*Required field!</p>
+      <p *ngIf="postForm.controls.title.errors?.minlength">
+        *Length at least
+        {{ postForm.controls.title.errors?.minlength.requiredLength }}
+        characters.
+      </p>
+    </div>
     <quill-editor
-      [(ngModel)]="photo"
+      formControlName="photo"
       name="photo"
-      placeholder="Photo"
-    ></quill-editor>
+      placeholder="Photo">
+    </quill-editor>
+    <div id="photo" *ngIf="postForm.controls.photo.invalid && postForm.controls.photo.touched" >
+      <p *ngIf="postForm.controls.photo.errors?.required">*Required field!</p>
+      <p *ngIf="postForm.controls.photo.errors?.minlength">
+        *Length at least
+        {{ postForm.controls.photo.errors?.minlength.requiredLength }}
+        characters.
+      </p>
+    </div>
     <label class="mb-2">Information:</label>
     <quill-editor
-      [(ngModel)]="text"
+      formControlName="text"
       name="text"
-      placeholder="Text"
-    ></quill-editor>
-    <button class="w-100 btn btn-primary mt-4 btn-lg" type="submit">
+      placeholder="Text"> 
+    </quill-editor>
+    <div id="text" *ngIf="postForm.controls.text.invalid && postForm.controls.text.touched">
+      <p *ngIf="postForm.controls.text.errors?.required">*Required field!</p>
+      <p *ngIf="postForm.controls.text.errors?.minlength">
+        *Length at least
+        {{ postForm.controls.text.errors?.minlength.requiredLength }}
+        characters.
+      </p>
+    </div>
+    <button
+      [disabled]="postForm.invalid"
+      class="w-100 btn btn-primary mt-4 btn-lg"
+      type="submit"
+    >
       Create
     </button>
   </form>

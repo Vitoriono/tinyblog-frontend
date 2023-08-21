@@ -68,11 +68,11 @@ export class ApiService {
     return !!this.token;
   }
 
-  registerPost(post: any): Observable<any> {
+  registerPost(post: IPost): Observable<IPost> {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http
-      .post<any>('http://localhost:3000/account/dashboard', post, {
+      .post<IPost>('http://localhost:3000/account/dashboard', post, {
         headers: headers,
       })
       .pipe(map((res: any) => res));

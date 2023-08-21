@@ -16,13 +16,7 @@
       id="inputLogin"
       placeholder="Login"
     />
-
-    <div
-      id="placeholder"
-      *ngIf="
-        loginForm.controls.login.invalid && loginForm.controls.login.touched
-      "
-    >
+    <div id="placeholder" *ngIf="loginForm.controls.login.invalid && loginForm.controls.login.touched">
       <p *ngIf="loginForm.controls.login.errors?.required">*Required field!</p>
       <p *ngIf="loginForm.controls.login.errors?.minlength">
         *Length at least
@@ -30,7 +24,6 @@
         characters.
       </p>
     </div>
-
     <input
       required
       formControlName="password"
@@ -39,13 +32,7 @@
       id="inputPassword"
       placeholder="Password"
     />
-    <div
-      id="placeholder"
-      *ngIf="
-        loginForm.controls.password.invalid &&
-        loginForm.controls.password.touched
-      "
-    >
+    <div id="placeholder" *ngIf=" loginForm.controls.password.invalid && loginForm.controls.password.touched" >
       <p *ngIf="loginForm.controls.password.errors?.required">
         *Required field!
       </p>
@@ -55,7 +42,6 @@
         characters.
       </p>
     </div>
-
     <button
       class="w-100 btn btn-lg"
       type="submit"
@@ -63,7 +49,6 @@
     >
       Sign in
     </button>
-
     <p class="mt-4 mb-3 text-muted">© 2022–2027</p>
   </form>
 </div>

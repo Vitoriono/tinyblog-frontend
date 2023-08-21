@@ -12,10 +12,9 @@ document.getElementById;
 })
 export class RegComponent implements OnInit {
   constructor(private apiServise: ApiService, private router: Router) {}
-
   declare registForm: FormGroup;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.registForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(5)]),
       login: new FormControl('', [

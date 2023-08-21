@@ -1,3 +1,8 @@
+$alert-color: rgb(211, 15, 15);
+$alert-position: absolute;
+$font-alert: italic;
+$size-alert: 1rem;
+
 .container {
   max-width: 900px;
   margin-top: 8rem;
@@ -19,4 +24,36 @@ input {
 
 .btn {
   height: 45px;
+}
+
+#category {
+  color: $alert-color;
+  margin: -2.8em 0 0 30em;
+  position: $alert-position;
+  font-style: $font-alert;
+  font-size: $size-alert;
+}
+
+#title {
+  color: $alert-color;
+  margin: -3em 0 0 30em;
+  position: $alert-position;
+  font-style: $font-alert;
+  font-size: $size-alert;
+}
+
+#photo {
+  color: $alert-color;
+  margin: -4em 0 0 30em;
+  position: $alert-position;
+  font-style: $font-alert;
+  font-size: $size-alert;
+}
+
+#text {
+  color: $alert-color;
+  margin: -6em 0 0 30em;
+  position: $alert-position;
+  font-style: $font-alert;
+  font-size: $size-alert;
 }

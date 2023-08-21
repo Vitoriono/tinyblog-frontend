@@ -8,7 +8,6 @@
       height="90"
     />
     <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-
     <input
       formControlName="name"
       type="name"
@@ -16,13 +15,7 @@
       id="inputName"
       placeholder="Name"
     />
-
-    <div
-      id="placeholder"
-      *ngIf="
-        registForm.controls.name.invalid && registForm.controls.name.touched
-      "
-    >
+    <div id="placeholder" *ngIf="registForm.controls.name.invalid && registForm.controls.name.touched">
       <p *ngIf="registForm.controls.name.errors?.required">*Required field!</p>
       <p *ngIf="registForm.controls.name.errors?.minlength">
         *Length at least
@@ -30,7 +23,6 @@
         characters.
       </p>
     </div>
-
     <input
       formControlName="login"
       type="login"
@@ -39,13 +31,7 @@
       id="inputLogin"
       placeholder="Login"
     />
-
-    <div
-      id="placeholder"
-      *ngIf="
-        registForm.controls.login.invalid && registForm.controls.login.touched
-      "
-    >
+    <div id="placeholder" *ngIf="registForm.controls.login.invalid && registForm.controls.login.touched">
       <p *ngIf="registForm.controls.login.errors?.required">*Required field!</p>
       <p *ngIf="registForm.controls.login.errors?.minlength">
         *Length at least
@@ -53,7 +39,6 @@
         characters.
       </p>
     </div>
-
     <input
       formControlName="email"
       type="email"
@@ -62,18 +47,12 @@
       id="inputEmail"
       placeholder="Email adress"
     />
-    <div
-      id="placeholder"
-      *ngIf="
-        registForm.controls.email.invalid && registForm.controls.email.touched
-      "
-    >
+    <div id="placeholder" *ngIf="registForm.controls.email.invalid && registForm.controls.email.touched">
       <p *ngIf="registForm.controls.email.errors?.required">*Required field!</p>
       <p *ngIf="registForm.controls.email.errors?.pattern">
         *Incorrect signature of email.
       </p>
     </div>
-
     <input
       formControlName="password"
       type="password"
@@ -82,13 +61,7 @@
       id="inputPassword"
       placeholder="Password"
     />
-    <div
-      id="placeholder"
-      *ngIf="
-        registForm.controls.password.invalid &&
-        registForm.controls.password.touched
-      "
-    >
+    <div id="placeholder" *ngIf="registForm.controls.password.invalid && registForm.controls.password.touched">
       <p *ngIf="registForm.controls.password.errors?.required">
         *Required field!
       </p>
@@ -98,12 +71,10 @@
         characters.
       </p>
     </div>
-
     <button
       class="w-100 btn btn-lg"
       type="submit"
-      [disabled]="registForm.invalid"
-    >
+      [disabled]="registForm.invalid">
       Sign up
     </button>
     <p class="mt-4 mb-3 text-muted">© 2022–2027</p>

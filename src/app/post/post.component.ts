@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { ApiService } from '../api.service';
+import { IPost } from '../interfaces';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post',
@@ -9,8 +11,8 @@ import { ApiService } from '../api.service';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
-  post$: any;
-  login: any;
+  declare post$: Observable<IPost>;
+  declare login: string;
 
   constructor(
     private apiServise: ApiService,

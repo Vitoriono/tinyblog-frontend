@@ -10,30 +10,30 @@
           <a
             *ngIf="apiServise.isAuthenticated()"
             class="nav-link"
-            [routerLink]="['/dashboard']"
-            >Dashboard</a
-          >
+            [routerLink]="['/dashboard']">
+            Dashboard
+          </a>
         </li>
       </ul>
       <form class="d-flex" role="search">
         <a
           *ngIf="!apiServise.isAuthenticated()"
           class="right btn btn-outline-success"
-          [routerLink]="['/reg']"
-          >Sign up</a
-        >
+          [routerLink]="['/reg']">
+          Sign up
+        </a>
         <a
           *ngIf="!apiServise.isAuthenticated()"
           class="right btn btn-outline-success"
-          [routerLink]="['/auth']"
-          >Sign in</a
-        >
+          [routerLink]="['/auth']">
+          Sign in
+        </a>
         <a
           *ngIf="apiServise.isAuthenticated()"
           class="btn btn-outline-warning"
-          (click)="LogoutUser()"
-          >Logout</a
-        >
+          (click)="LogoutUser()">
+          Logout
+        </a>
       </form>
     </div>
   </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,48 +9,31 @@ import { ApiService } from '../api.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  category!: string;
-  title!: string;
-  photo!: string;
-  text!: string;
-  author!: string;
-
   constructor(private apiServise: ApiService, private router: Router) {}
+  declare postForm: FormGroup;
 
-  ngOnInit(): void {}
-
-  createPost() {
-    const post = {
-      category: this.category,
-      title: this.title,
-      photo: this.photo,
-      text: this.text,
-      author: JSON.parse(localStorage.getItem('user') || '{}').login,
-    };
-    console.log(post);
-
-    if (!post.category) {
-      alert('Select a category!');
-      return false;
-    } else if (!post.title) {
-      alert('Enter  title!');
-      return false;
-    } else if (!post.photo) {
-      alert('Add your photo!');
-      return false;
-    } else if (!post.text) {
-      alert('Enter your text!');
-      return false;
-    }
-
-    this.apiServise.registerPost(post).subscribe((data) => {
-      if (!data) {
-        alert(data);
-      } else {
-        alert(data);
-        this.router.navigate(['/']);
-      }
+  ngOnInit(): void {
+    this.postForm = new FormGroup({
+      category: new FormControl('', Validators.required),
+      title: new FormControl('', Validators.required),
+      photo: new FormControl('', Validators.required),
+      text: new FormControl('', Validators.required),
     });
+  }
+
+  createPost(post: FormGroup) {
+    const author = JSON.parse(localStorage.getItem('user') || '{}').login;
+
+    this.apiServise
+      .registerPost({ ...post.value, author: author })
+      .subscribe((data) => {
+        if (!data) {
+          alert('Post creating fail!');
+        } else {
+          alert('You have successfully created post!');
+          this.router.navigate(['/']);
+        }
+      });
 
     return false;
   }

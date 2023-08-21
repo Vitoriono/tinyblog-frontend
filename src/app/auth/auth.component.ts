@@ -12,7 +12,7 @@ export class AuthComponent implements OnInit {
   constructor(private apiServise: ApiService, private router: Router) {}
   declare loginForm: FormGroup;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loginForm = new FormGroup({
       login: new FormControl('', [
         Validators.required,
@@ -20,7 +20,7 @@ export class AuthComponent implements OnInit {
       ]),
       password: new FormControl(null, [
         Validators.required,
-        Validators.minLength(5),
+        Validators.minLength(4),
       ]),
     });
   }
